@@ -5,7 +5,7 @@ import 'dotenv/config';
 import { ChatAnthropic } from '@langchain/anthropic';
 
 // HumanMessage rappresenta un messaggio scritto dall'utente.
-import { HumanMessage } from 'langchain';
+import { AIMessage, HumanMessage } from 'langchain';
 
 // Creiamo il modello indicando il modello Anthropic da utilizzare e la chiave API.
 const model = new ChatAnthropic({
@@ -15,16 +15,28 @@ const model = new ChatAnthropic({
 
 try {
     // Anche se abbiamo un solo messaggio, usiamo sempre un array di HumanMessage.
-    const messages = [
-        new HumanMessage('Ciao! Spiegami in una frase che cos\'è LangChain.')
-    ];
+    const messages = [];
 
+    messages.push(
+        new HumanMessage('Ciao, mi chiamo Patricia')
+    )
     // invoke() invia l'array di messaggi al modello e attende la risposta.
-    const response = await model.invoke(messages);
+    const response1 = await model.invoke(messages);
 
     // response è un AIMessage. La proprietà content contiene il testo generato.
-    console.log('RISPOSTA DEL MODELLO:');
-    console.log(response.content);
+    console.log(response1.content);
+
+    messages.push(new AIMessage(response1.content))
+
+    console.log('===============');
+
+    messages.push(
+        new HumanMessage('Mi dici la genesi del mio nome')
+    )
+
+    const response2 = await model.invoke(messages);
+
+    console.log(response2.content);
 } catch (error) {
     // Mostriamo un messaggio utile in caso di errore di configurazione o rete.
     console.error('Impossibile contattare Anthropic. Controlla la chiave API e la connessione.', error);
