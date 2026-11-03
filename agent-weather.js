@@ -3,18 +3,19 @@ import 'dotenv/config';
 
 // ChatAnthropic permette di usare Claude tramite LangChain.
 import { ChatAnthropic } from '@langchain/anthropic';
+import { ChatOpenRouter } from '@langchain/openrouter';
 
 // createAgent crea un agente che può utilizzare uno o più tool.
 // HumanMessage rappresenta il messaggio inviato dall'utente.
 import { createAgent, HumanMessage } from 'langchain';
 
 // Importiamo il tool meteo creato nella cartella tools.
-import getWeather from './tools/getWeather.js';
+import getWeather from './tools/weatherTool.js';
 
 // Creiamo il modello indicando il modello Anthropic scelto e la chiave API.
-const model = new ChatAnthropic({
-    model: 'claude-haiku-4-5',
-    apiKey: process.env.ANTHROPIC_API_KEY
+const model = new ChatOpenRouter({
+    model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
+    apiKey: process.env.OPENROUTER_API_KEY
 });
 
 // Creiamo un agente e gli rendiamo disponibile il tool get_weather.
@@ -42,9 +43,9 @@ try {
     // L'ultimo messaggio prodotto dall'agente è la risposta finale.
     const finalMessage = result.messages.at(-1);
 
-    console.log('RISPOSTA FINALE DELL’AGENTE:');
+    console.log('RISPOSTA FINALE DELL\'AGENTE:');
     console.log(finalMessage.content);
 } catch (error) {
     // Gestiamo possibili problemi di configurazione, rete o autenticazione.
-    console.error('Errore durante l’esecuzione dell’agente:', error);
+    console.error('Errore durante l\'esecuzione dell\'agente:', error);
 }

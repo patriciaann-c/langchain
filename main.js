@@ -4,14 +4,15 @@ import 'dotenv/config';
 // ChatAnthropic è l'adapter LangChain che permette di usare i modelli Anthropic.
 import { ChatAnthropic } from '@langchain/anthropic';
 import { ChatMistralAI } from '@langchain/mistralai';
+import { ChatOpenRouter } from '@langchain/openrouter';
 
 // HumanMessage rappresenta un messaggio scritto dall'utente.
 import { HumanMessage } from 'langchain';
 
 // Creiamo il modello indicando il modello Anthropic da utilizzare e la chiave API.
-const model = new ChatMistralAI({
-    model: 'mistral-medium-latest',
-    apiKey: process.env.MISTRAL_VIBE_API_KEY
+const model = new ChatOpenRouter({
+    model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
+    apiKey: process.env.OPENROUTER_API_KEY
 });
 
 try {
