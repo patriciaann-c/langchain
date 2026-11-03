@@ -199,13 +199,16 @@ importers:
     dependencies:
       '@langchain/anthropic':
         specifier: ^1.6.0
-        version: 1.6.0(@langchain/core@1.3.2)
+        version: 1.6.0(@langchain/core@1.3.2(ws@8.22.1))
+      '@langchain/mistralai':
+        specifier: ^1.2.0
+        version: 1.2.0(@langchain/core@1.3.2(ws@8.22.1))
       dotenv:
         specifier: ^18.0.9
         version: 18.0.9
       langchain:
         specifier: ^1.6.0
-        version: 1.6.0(@langchain/core@1.3.2)
+        version: 1.6.0(@langchain/core@1.3.2(ws@8.22.1))(ws@8.22.1)
       zod:
         specifier: ^4.6.7
         version: 4.6.7
@@ -263,8 +266,17 @@ packages:
       '@langchain/core': ^1.1.48
       zod: ^3.25.32 || ^4.2.0
 
+  '@langchain/mistralai@1.2.0':
+    resolution: {integrity: sha512-SRtCSDIBzcQc6ZK5qa1V2ZhqSdZomXOt4VzBWXkD//IYYhbMJHhbrlYuCIuHktwpF/1ME5a7Euyk+BujN9hkTA==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      '@langchain/core': ^1.0.0
+
   '@langchain/protocol@0.0.20':
     resolution: {integrity: sha512-sxlkDG2/HGyjDFLTJ8B/o3oglRjOv8iLCFgrV0550/Vym3V6RZ0SUjAQFe8jrLQw8ZXjERy3swJp5OODBSrUYA==}
+
+  '@mistralai/mistralai@2.2.1':
+    resolution: {integrity: sha512-uKU8CZmL2RzYKmplsU01hii4p3pe4HqJefpWNRWXm1Tcm0Sm4xXfwSLIy4k7ZCPlbETCGcp69E7hZs+WOJ5itQ==}
 
   '@stablelib/base64@1.0.1':
     resolution: {integrity: sha512-1bnPQqSxSuc3Ii6MhBysoWCg58j97aUjuCSZrGSmDxNqtytIi0k8utUenAwTZN4V5mXXYGsVUI9zeBqy+jBOSQ==}
@@ -363,6 +375,23 @@ packages:
   ts-algebra@2.0.0:
     resolution: {integrity: sha512-FPAhNPFMrkwz76P7cdjdmiShwMynZYN6SgOujD1urY4oNm80Ou9oMdmbR45LotcKOXoy7wSmHkRFE6Mxbrhefw==}
 
+  ws@8.22.1:
+    resolution: {integrity: sha512-oyL6OPYme/CmiFvNuGzeoxCJ4nOrZE2O1FwM9MWM1AsGri6nLXB2pg+lNA8aLeXMSav0J6eIVS1j6vUPzUtK9g==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
+  zod-to-json-schema@3.25.2:
+    resolution: {integrity: sha512-O/PgfnpT1xKSDeQYSCfRI5Gy3hPf91mKVDuYLUHZJMiDFptvP41MSnWofm8dnCm0256ZNfZIM7DSzuSMAFnjHA==}
+    peerDependencies:
+      zod: ^3.25.28 || ^4
+
   zod@4.6.7:
     resolution: {integrity: sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg==}
 
@@ -379,18 +408,18 @@ snapshots:
 
   '@cfworker/json-schema@4.1.4': {}
 
-  '@langchain/anthropic@1.6.0(@langchain/core@1.3.2)':
+  '@langchain/anthropic@1.6.0(@langchain/core@1.3.2(ws@8.22.1))':
     dependencies:
       '@anthropic-ai/sdk': 0.129.0(zod@4.6.7)
-      '@langchain/core': 1.3.2
+      '@langchain/core': 1.3.2(ws@8.22.1)
       zod: 4.6.7
 
-  '@langchain/core@1.3.2':
+  '@langchain/core@1.3.2(ws@8.22.1)':
     dependencies:
       '@cfworker/json-schema': 4.1.4
       '@standard-schema/spec': 1.1.0
       js-tiktoken: 1.0.21
-      langsmith: 0.11.7
+      langsmith: 0.11.7(ws@8.22.1)
       mustache: 4.2.0
       p-queue: 6.6.2
       zod: 4.6.7
@@ -401,23 +430,23 @@ snapshots:
       - openai
       - ws
 
-  '@langchain/langgraph-checkpoint@1.2.2(@langchain/core@1.3.2)':
+  '@langchain/langgraph-checkpoint@1.2.2(@langchain/core@1.3.2(ws@8.22.1))':
     dependencies:
-      '@langchain/core': 1.3.2
+      '@langchain/core': 1.3.2(ws@8.22.1)
 
-  '@langchain/langgraph-sdk@1.12.9(@langchain/core@1.3.2)':
+  '@langchain/langgraph-sdk@1.12.9(@langchain/core@1.3.2(ws@8.22.1))':
     dependencies:
-      '@langchain/core': 1.3.2
+      '@langchain/core': 1.3.2(ws@8.22.1)
       '@langchain/protocol': 0.0.20
       '@types/json-schema': 7.0.15
       p-queue: 9.3.5
       p-retry: 7.1.1
 
-  '@langchain/langgraph@1.6.0(@langchain/core@1.3.2)(zod@4.6.7)':
+  '@langchain/langgraph@1.6.0(@langchain/core@1.3.2(ws@8.22.1))(zod@4.6.7)':
     dependencies:
-      '@langchain/core': 1.3.2
-      '@langchain/langgraph-checkpoint': 1.2.2(@langchain/core@1.3.2)
-      '@langchain/langgraph-sdk': 1.12.9(@langchain/core@1.3.2)
+      '@langchain/core': 1.3.2(ws@8.22.1)
+      '@langchain/langgraph-checkpoint': 1.2.2(@langchain/core@1.3.2(ws@8.22.1))
+      '@langchain/langgraph-sdk': 1.12.9(@langchain/core@1.3.2(ws@8.22.1))
       '@langchain/protocol': 0.0.20
       '@standard-schema/spec': 1.1.0
       zod: 4.6.7
@@ -425,7 +454,24 @@ snapshots:
       - react
       - react-dom
 
+  '@langchain/mistralai@1.2.0(@langchain/core@1.3.2(ws@8.22.1))':
+    dependencies:
+      '@langchain/core': 1.3.2(ws@8.22.1)
+      '@mistralai/mistralai': 2.2.1
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   '@langchain/protocol@0.0.20': {}
+
+  '@mistralai/mistralai@2.2.1':
+    dependencies:
+      ws: 8.22.1
+      zod: 4.6.7
+      zod-to-json-schema: 3.25.2(zod@4.6.7)
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
 
   '@stablelib/base64@1.0.1': {}
 
@@ -454,12 +500,12 @@ snapshots:
       '@babel/runtime': 7.29.10
       ts-algebra: 2.0.0
 
-  langchain@1.6.0(@langchain/core@1.3.2):
+  langchain@1.6.0(@langchain/core@1.3.2(ws@8.22.1))(ws@8.22.1):
     dependencies:
-      '@langchain/core': 1.3.2
-      '@langchain/langgraph': 1.6.0(@langchain/core@1.3.2)(zod@4.6.7)
-      '@langchain/langgraph-checkpoint': 1.2.2(@langchain/core@1.3.2)
-      langsmith: 0.11.7
+      '@langchain/core': 1.3.2(ws@8.22.1)
+      '@langchain/langgraph': 1.6.0(@langchain/core@1.3.2(ws@8.22.1))(zod@4.6.7)
+      '@langchain/langgraph-checkpoint': 1.2.2(@langchain/core@1.3.2(ws@8.22.1))
+      langsmith: 0.11.7(ws@8.22.1)
       zod: 4.6.7
     transitivePeerDependencies:
       - '@opentelemetry/api'
@@ -470,9 +516,11 @@ snapshots:
       - react-dom
       - ws
 
-  langsmith@0.11.7:
+  langsmith@0.11.7(ws@8.22.1):
     dependencies:
       p-queue: 6.6.2
+    optionalDependencies:
+      ws: 8.22.1
 
   mustache@4.2.0: {}
 
@@ -504,5 +552,11 @@ snapshots:
       fast-sha256: 1.3.0
 
   ts-algebra@2.0.0: {}
+
+  ws@8.22.1: {}
+
+  zod-to-json-schema@3.25.2(zod@4.6.7):
+    dependencies:
+      zod: 4.6.7
 
   zod@4.6.7: {}
