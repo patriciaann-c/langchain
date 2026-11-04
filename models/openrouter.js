@@ -1,8 +1,9 @@
 import { ChatOpenRouter } from "@langchain/openrouter";
+import 'dotenv/config';
 
-const model = new ChatOpenRouter({
+const openRouterModel = new ChatOpenRouter({
     model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
     apiKey: process.env.OPENROUTER_API_KEY
 });
 
-export default model;
+export default openRouterModel;

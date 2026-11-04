@@ -1,8 +1,8 @@
 import { createAgent } from "langchain";
-import model from "../models/openrouter.js";
+import openRouterModel from "../models/openrouter.js";
 
 const agentPsy = createAgent({
-    model,
+    model: openRouterModel,
     systemPrompt: `
     Sei uno pscichiatra che interpreta alla lettera la filosofia di Jung.
     Sai interpretare i sogni come Freud e suggerisce sempre problemi affettivi

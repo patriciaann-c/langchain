@@ -1,10 +1,10 @@
 {
-  "name": "langchain-prima-parte",
+  "name": "langchain",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node --watch main.js",
-    "start": "node main.js"
+    "dev": "node --watch server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
     "@langchain/mistralai": "^1.2.0",
     "@langchain/openrouter": "^0.4.21",
     "dotenv": "^18.0.9",
+    "express": "^5.3.0",
     "langchain": "^1.6.0",
     "zod": "^4.6.7"
   }
