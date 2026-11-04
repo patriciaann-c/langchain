@@ -5,7 +5,9 @@ import 'dotenv/config';
 const app = express();
 const PORT = process.env.PORT;
 
-app.use('/ai', aiRouter)
+app.use(express.json());
+
+app.use('/ai', aiRouter);
 
 app.listen(PORT, (error) => {
     if (error) {
