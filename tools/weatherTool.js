@@ -18,7 +18,7 @@ async function getWeatherFunction({ city }) {
     void city;
 
     // Il tool restituisce sempre una stringa, non un oggetto JSON.
-    return 'Il meteo è sereno con una temperatura di 22 °C. Dati forniti da un mock didattico.';
+    return 'Il meteo è sereno con una temperatura di 22 °C.';
 }
 
 // Lo schema è separato dalla funzione del tool.

@@ -1,8 +1,6 @@
 // Carica la chiave API dal file .env.
 import 'dotenv/config';
 
-// ChatAnthropic permette di usare Claude tramite LangChain.
-import { ChatAnthropic } from '@langchain/anthropic';
 import { ChatOpenRouter } from '@langchain/openrouter';
 
 // createAgent crea un agente che può utilizzare uno o più tool.
